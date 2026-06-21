@@ -1,0 +1,126 @@
+export type StationStatus = 'online' | 'maintenance' | 'offline'
+
+export interface Station {
+  id: string
+  name: string
+  city: string
+  status: StationStatus
+  pumps: number
+  activePumps: number
+  todaySales: number
+  todayLiters: number
+  tankLevel: number
+  pumpsNeedRefill: number
+  link: string
+}
+
+export const stations: Station[] = [
+  {
+    id: 'st-01',
+    name: 'محطة المداين',
+    city: 'الرياض - حي العليا',
+    status: 'online',
+    pumps: 8,
+    activePumps: 7,
+    todaySales: 184250,
+    todayLiters: 78400,
+    tankLevel: 82,
+    pumpsNeedRefill: 1,
+    link: '#',
+  },
+  {
+    id: 'st-02',
+    name: 'محطة الضبيان',
+    city: 'الرياض - حي الملقا',
+    status: 'online',
+    pumps: 6,
+    activePumps: 6,
+    todaySales: 142900,
+    todayLiters: 61200,
+    tankLevel: 64,
+    pumpsNeedRefill: 0,
+    link: '#',
+  },
+  {
+    id: 'st-03',
+    name: 'محطة الحميدان',
+    city: 'طريق الملك فهد',
+    status: 'maintenance',
+    pumps: 10,
+    activePumps: 4,
+    todaySales: 98500,
+    todayLiters: 41800,
+    tankLevel: 38,
+    pumpsNeedRefill: 3,
+    link: '#',
+  },
+  {
+    id: 'st-04',
+    name: 'محطة سماح',
+    city: 'الرياض - حي السويدي',
+    status: 'online',
+    pumps: 6,
+    activePumps: 5,
+    todaySales: 121300,
+    todayLiters: 52600,
+    tankLevel: 71,
+    pumpsNeedRefill: 1,
+    link: '#',
+  },
+  {
+    id: 'st-05',
+    name: 'محطة مشار',
+    city: 'المدينة الصناعية الثانية',
+    status: 'offline',
+    pumps: 8,
+    activePumps: 0,
+    todaySales: 0,
+    todayLiters: 0,
+    tankLevel: 19,
+    pumpsNeedRefill: 4,
+    link: '#',
+  },
+]
+
+export interface FuelType {
+  key: string
+  label: string
+  price: number
+  color: string
+}
+
+export const fuelTypes: FuelType[] = [
+  { key: '91', label: 'بنزين 91', price: 2.18, color: 'var(--chart-2)' },
+  { key: '95', label: 'بنزين 95', price: 2.33, color: 'var(--chart-1)' },
+  { key: 'diesel', label: 'ديزل', price: 1.15, color: 'var(--chart-4)' },
+]
+
+export const statusMeta: Record<
+  StationStatus,
+  { label: string; dot: string; text: string; bg: string }
+> = {
+  online: {
+    label: 'متصلة',
+    dot: 'bg-[var(--success)]',
+    text: 'text-[var(--success)]',
+    bg: 'bg-[var(--success)]/10',
+  },
+  maintenance: {
+    label: 'صيانة',
+    dot: 'bg-[var(--warning)]',
+    text: 'text-[var(--warning)]',
+    bg: 'bg-[var(--warning)]/10',
+  },
+  offline: {
+    label: 'متوقفة',
+    dot: 'bg-destructive',
+    text: 'text-destructive',
+    bg: 'bg-destructive/10',
+  },
+}
+
+export function formatSAR(value: number) {
+  return new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 0,
+  }).format(value)
+}
