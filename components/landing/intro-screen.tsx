@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 const highlights = [
   {
     icon: Fuel,
-    title: 'خمس محطات',
+    title: 'محطات رانز',
     desc: 'إدارة موحّدة لجميع محطات الوقود من مكان واحد',
   },
   {
