@@ -22,7 +22,7 @@ export const stations: Station[] = [
     status: 'online',
     pumps: 4,
     activePumps: 4,
-    todaySales: 183,55,
+    todaySales: 18355,
     todayLiters: 150,
     tankLevel: 30,
     pumpsNeedRefill: 70,
