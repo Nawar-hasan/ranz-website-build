@@ -59,9 +59,13 @@ function StatCard({
 
 function StationCard({ station }: { station: Station }) {
   const meta = statusMeta[station.status]
+  const isExternal = /^https?:\/\//.test(station.link)
   return (
     <a
       href={station.link}
+      {...(isExternal
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : {})}
       className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10"
     >
       <div
