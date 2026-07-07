@@ -52,7 +52,7 @@ export const stations: Station[] = [
     todayLiters: 41800,
     tankLevel: 38,
     pumpsNeedRefill: 3,
-    link: '#',
+    link: 'https://hamidan-tanks.ranzstation.com/',
   },
   {
     id: 'st-04',
